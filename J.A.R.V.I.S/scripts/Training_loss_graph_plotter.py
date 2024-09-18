@@ -2,8 +2,8 @@ import matplotlib.pyplot as plt
 import os
 
 # Directory and file paths
-logs_dir = r'C:\Users\mrult\ai_project\results\logs'
-save_dir = r'C:\Users\mrult\ai_project\results\figures'
+logs_dir = r'(path to logs directory)'
+save_dir = r'(path to figures directory)'
 counter_file = os.path.join(save_dir, 'plot_counter.txt')
 logs_file = os.path.join(logs_dir, 'training_log.txt')
 
