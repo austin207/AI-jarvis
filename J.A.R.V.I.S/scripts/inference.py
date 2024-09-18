@@ -11,8 +11,8 @@ from tokenizers import ByteLevelBPETokenizer
 
 # Load tokenizer
 tokenizer = ByteLevelBPETokenizer(
-    r"C:\Users\mrult\ai_project\data\processed\tokenizer\vocab.json", 
-    r"C:\Users\mrult\ai_project\data\processed\tokenizer\merges.txt"
+    r"(Path of vocab.json in processed dataset)", 
+    r"(Path of merges.txt in processed dataset)"
 )
 
 # Load model
@@ -20,7 +20,7 @@ vocab_size = tokenizer.get_vocab_size()
 max_seq_len = 1024
 
 model = GPTModel(vocab_size=vocab_size, embedding_dim=768, num_heads=12, num_layers=12, max_seq_len=max_seq_len, dropout=0.1)
-model.load_state_dict(torch.load(r"C:\Users\mrult\ai_project\models\checkpoints\gpt_model.pth"))
+model.load_state_dict(torch.load(r"(Path of trained model from checkpoints for testing)"))
 model.eval()
 
 # Text generation function
@@ -52,6 +52,6 @@ def generate_text(model, prompt, max_length=50):
     return generated_text
 
 # Generate text with a prompt
-prompt = "Once upon a time there was a strong man"
+prompt = "Once upon a time"
 generated_text = generate_text(model, prompt, max_length=100)
 print("Generated text: ", generated_text)
