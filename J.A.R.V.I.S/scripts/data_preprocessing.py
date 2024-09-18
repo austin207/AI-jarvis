@@ -5,8 +5,8 @@ from transformers import GPT2Tokenizer
 tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
 
 # Input and output file paths
-input_file = r"C:\Users\mrult\ai_project\data\raw\dataset.txt"
-output_dir = r"C:\Users\mrult\ai_project\data\processed"
+input_file = r"(Path of raw dataset)"
+output_dir = r"(Path to save processed dataset)"
 output_file = os.path.join(output_dir, "tokenized_data.txt")
 tokenizer_dir = os.path.join(output_dir, "tokenizer")  # Directory to save tokenizer files
 
