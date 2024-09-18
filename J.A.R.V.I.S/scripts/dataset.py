@@ -33,6 +33,6 @@ class TextDataset(Dataset):
 
 # Example usage
 if __name__ == "__main__":
-    dataset = TextDataset(file_path=r"C:\Users\mrult\ai_project\data\processed\tokenized_data.txt", max_seq_len=1024)
+    dataset = TextDataset(file_path=r"(Path of tokenised data from processed dataset)", max_seq_len=1024)
     print(f"Number of sequences: {len(dataset)}")
     print(f"First sequence: {dataset[0]}")
