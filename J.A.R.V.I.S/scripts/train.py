@@ -29,7 +29,7 @@ optimizer = Adam(model.parameters(), lr=learning_rate)
 loss_fn = nn.CrossEntropyLoss()
 
 # Load data
-train_dataset = TextDataset(file_path=r"C:\Users\mrult\ai_project\data\processed\tokenized_data.txt", max_seq_len=max_seq_len)
+train_dataset = TextDataset(file_path=r"(Path of tokenised data from processed dataset)", max_seq_len=max_seq_len)
 train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
 
 # Learning rate scheduler (optional but useful)
@@ -37,7 +37,7 @@ total_steps = num_epochs * len(train_loader)
 scheduler = get_linear_schedule_with_warmup(optimizer, num_warmup_steps=500, num_training_steps=total_steps)
 
 # Define log file path
-log_dir = r'C:\Users\mrult\ai_project\results\logs'
+log_dir = r'(Path to save logs in logs directory  for plotting learning rate graph)'
 os.makedirs(log_dir, exist_ok=True)
 log_file_path = os.path.join(log_dir, 'training_log.txt')
 
@@ -82,7 +82,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 train_model(model, train_loader, optimizer, loss_fn, scheduler, device, log_file_path)
 
 # Save the trained model
-model_save_path = r'C:\Users\mrult\ai_project\models\checkpoints\gpt_model.pth'
+model_save_path = r'(Path to save trained model for testing in checkpoints)'
 torch.save(model.state_dict(), model_save_path)
 print(f"Model saved to {model_save_path}")
 
