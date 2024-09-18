@@ -11,11 +11,11 @@ vocab_size = 50257
 
 # Load trained model
 model = GPTModel(vocab_size=vocab_size, embedding_dim=768, num_heads=12, num_layers=12, max_seq_len=max_seq_len, dropout=0.1)
-model.load_state_dict(torch.load('models/final/gpt_model.pth'))
+model.load_state_dict(torch.load('(Path of final model)'))
 model.eval()
 
 # Load dataset
-test_dataset = TextDataset(file_path="data/processed/tokenized_test_data.txt", max_seq_len=max_seq_len)
+test_dataset = TextDataset(file_path="(Path of tokenised data)", max_seq_len=max_seq_len)
 test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
 
 # Evaluation function
