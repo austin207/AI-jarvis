@@ -1,14 +1,20 @@
 import os
+import json
 from transformers import GPT2Tokenizer
+
+# Load config file
+config_path = os.path.join(os.path.dirname(__file__), '..', 'config', 'config.json')
+with open(config_path, 'r') as f:
+    config = json.load(f)
 
 # Load GPT-2 tokenizer
 tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
 
-# Input and output file paths
-input_file = r"(Path of raw dataset)"
-output_dir = r"(Path to save processed dataset)"
-output_file = os.path.join(output_dir, "tokenized_data.txt")
-tokenizer_dir = os.path.join(output_dir, "tokenizer")  # Directory to save tokenizer files
+# Input and output file paths from config.json
+input_file = config['data']['raw']  # Raw input file
+output_dir = os.path.dirname(config['data']['processed']['tokenized_data'])  # Directory where tokenized data will be saved
+output_file = config['data']['processed']['tokenized_data']  # Full path to the tokenized data file
+tokenizer_dir = os.path.dirname(config['data']['tokenizer_files']['vocab'])  # Directory to save tokenizer files
 
 # Ensure the output and tokenizer directories exist
 os.makedirs(output_dir, exist_ok=True)
