@@ -3,13 +3,13 @@
     "description": "A project for GPT-based text generation and evaluation with custom dataset processing, model training, and evaluation.",
     "data": {
       "max_seq_len":1024,
-      "raw": "C:/Users/mrult/ai_project/data/raw/dataset.txt",
+      "raw": "Path to raw dataset",
       "processed": {
-      "tokenized_data": "C:/Users/mrult/ai_project/data/processed/tokenized_data.txt"
+      "tokenized_data": "Path to tokenised dataset"
     },
     "tokenizer_files": {
-      "vocab": "C:/Users/mrult/ai_project/data/processed/tokenizer/vocab.json",
-      "merges": "C:/Users/mrult/ai_project/data/processed/tokenizer/merges.txt"
+      "vocab": "Path to vocab.json",
+      "merges": "Path to merges.txt"
     },
     "max_sequence_length": 1024
   },
@@ -21,22 +21,22 @@
       "num_heads": 12,
       "num_layers": 12,
       "dropout": 0.1,
-      "pretrained_model_path": "C:/Users/mrult/ai_project/models/checkpoints/gpt_model.pth",
-      "checkpoint": "C:/Users/mrult/ai_project/models/checkpoints/gpt_model.pth", 
-      "checkpoints": "C:/Users/mrult/ai_project/models/checkpoints"
+      "pretrained_model_path": "Path to final gpt_model.pth",
+      "checkpoint": "Path to gpt_model.pth which has been resumed in checkpoints", 
+      "checkpoints": "Path to checkpoints directory"
     },
     "training": {
       "batch_size": 8,
       "learning_rate": 5e-5,
       "num_epochs": 10,
-      "save_model_dir": "C:/Users/mrult/ai_project/models/checkpoints",
-      "training_logs": "C:/Users/mrult/ai_project/results/logs/training_log.txt",
+      "save_model_dir": "Path to save checkpoints",
+      "training_logs": "Path to save logs",
       "resume_from_checkpoint": true,
-      "checkpoint_path": "C:/Users/mrult/ai_project/models/checkpoints/checkpoint_epoch_4.pth",
+      "checkpoint_path": "Path to load checkpoints to resume training",
       "device": "cuda"
     },
     "evaluation": {
-      "test_data_path": "C:/Users/mrult/ai_project/data/processed/tokenized_data.txt",
+      "test_data_path": "Path for tokenised dataset",
       "batch_size": 8,
       "evaluation_device": "cuda",
       "evaluation_metrics": ["loss", "perplexity"]
@@ -49,19 +49,19 @@
       }
     },
     "plotting": {
-      "logs_dir": "C:/Users/mrult/ai_project/results/logs",
-      "save_dir": "C:/Users/mrult/ai_project/results/figures",
-      "plot_counter_file": "C:/Users/mrult/ai_project/results/figures/plot_counter.txt",
+      "logs_dir": "Path to logs directory",
+      "save_dir": "Path to figures directory",
+      "plot_counter_file": "Path to save plot counter file",
       "plot_epochs_per_session": 5,
-      "training_logs": "C:/Users/mrult/ai_project/results/logs/training_log.txt"
+      "training_logs": "Path to save training logs"
     },
     "scripts": {
-      "data_preprocessing": "scripts/data_preprocessing.py",
-      "dataset": "scripts/dataset.py",
-      "train": "scripts/train.py",
-      "evaluate": "scripts/evaluate.py",
-      "inference": "scripts/inference.py",
-      "plot_training_loss": "scripts/Training_loss_graph_plotter.py"
+      "data_preprocessing": "Path to data_preprocessing.py",
+      "dataset": "Path to dataset.py",
+      "train": "Path to train.py",
+      "evaluate": "Path to evaluate.py",
+      "inference": "Path to inference.py",
+      "plot_training_loss": "Path to Training_loss_graph_plotter.py"
     }
   }
   
