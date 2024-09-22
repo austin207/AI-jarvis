@@ -1,11 +1,18 @@
 import matplotlib.pyplot as plt
 import os
+import json
 
-# Directory and file paths
-logs_dir = r'(path to logs directory)'
-save_dir = r'(path to figures directory)'
-counter_file = os.path.join(save_dir, 'plot_counter.txt')
-logs_file = os.path.join(logs_dir, 'training_log.txt')
+# Load config file
+config_path = os.path.join(os.path.dirname(__file__), '..', 'config', 'config.json')
+with open(config_path, 'r') as f:
+    config = json.load(f)
+
+# Extract paths and parameters from config
+logs_dir = config['plotting']['logs_dir']
+save_dir = config['plotting']['save_dir']
+counter_file = os.path.join(save_dir, config['plotting']['plot_counter_file'])
+logs_file = os.path.join(logs_dir, config['plotting']['training_logs'])
+num_epochs_per_session = config['plotting']['plot_epochs_per_session']
 
 # Ensure the directories exist
 os.makedirs(save_dir, exist_ok=True)
@@ -25,8 +32,7 @@ def generate_plots_from_logs():
     with open(logs_file, 'r') as file:
         lines = file.readlines()
 
-    # Process lines in chunks of 10 (one session)
-    num_epochs_per_session = 5
+    # Process lines in chunks of num_epochs_per_session
     num_sessions = len(lines) // num_epochs_per_session
     plot_counter = read_counter()
     
