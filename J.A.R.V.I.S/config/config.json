@@ -1,0 +1,67 @@
+{
+    "project_name": "AI Project",
+    "description": "A project for GPT-based text generation and evaluation with custom dataset processing, model training, and evaluation.",
+    "data": {
+      "max_seq_len":1024,
+      "raw": "C:/Users/mrult/ai_project/data/raw/dataset.txt",
+      "processed": {
+      "tokenized_data": "C:/Users/mrult/ai_project/data/processed/tokenized_data.txt"
+    },
+    "tokenizer_files": {
+      "vocab": "C:/Users/mrult/ai_project/data/processed/tokenizer/vocab.json",
+      "merges": "C:/Users/mrult/ai_project/data/processed/tokenizer/merges.txt"
+    },
+    "max_sequence_length": 1024
+  },
+    "model": {
+      "model_name": "GPTModel",
+      "max_seq_len": 1024,
+      "vocab_size": 50257,
+      "embedding_dim": 768,
+      "num_heads": 12,
+      "num_layers": 12,
+      "dropout": 0.1,
+      "pretrained_model_path": "C:/Users/mrult/ai_project/models/checkpoints/gpt_model.pth",
+      "checkpoint": "C:/Users/mrult/ai_project/models/checkpoints/gpt_model.pth", 
+      "checkpoints": "C:/Users/mrult/ai_project/models/checkpoints"
+    },
+    "training": {
+      "batch_size": 8,
+      "learning_rate": 5e-5,
+      "num_epochs": 10,
+      "save_model_dir": "C:/Users/mrult/ai_project/models/checkpoints",
+      "training_logs": "C:/Users/mrult/ai_project/results/logs/training_log.txt",
+      "resume_from_checkpoint": true,
+      "checkpoint_path": "C:/Users/mrult/ai_project/models/checkpoints/checkpoint_epoch_4.pth",
+      "device": "cuda"
+    },
+    "evaluation": {
+      "test_data_path": "C:/Users/mrult/ai_project/data/processed/tokenized_data.txt",
+      "batch_size": 8,
+      "evaluation_device": "cuda",
+      "evaluation_metrics": ["loss", "perplexity"]
+    },
+    "inference": {
+      "generation_settings": {
+        "max_length": 100,
+        "temperature": 0.8,
+        "top_k": 10
+      }
+    },
+    "plotting": {
+      "logs_dir": "C:/Users/mrult/ai_project/results/logs",
+      "save_dir": "C:/Users/mrult/ai_project/results/figures",
+      "plot_counter_file": "C:/Users/mrult/ai_project/results/figures/plot_counter.txt",
+      "plot_epochs_per_session": 5,
+      "training_logs": "C:/Users/mrult/ai_project/results/logs/training_log.txt"
+    },
+    "scripts": {
+      "data_preprocessing": "scripts/data_preprocessing.py",
+      "dataset": "scripts/dataset.py",
+      "train": "scripts/train.py",
+      "evaluate": "scripts/evaluate.py",
+      "inference": "scripts/inference.py",
+      "plot_training_loss": "scripts/Training_loss_graph_plotter.py"
+    }
+  }
+  
