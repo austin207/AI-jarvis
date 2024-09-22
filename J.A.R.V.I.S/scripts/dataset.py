@@ -1,5 +1,12 @@
 import torch
 from torch.utils.data import Dataset
+import os
+import json
+
+# Load config file
+config_path = os.path.join(os.path.dirname(__file__), '..', 'config', 'config.json')
+with open(config_path, 'r') as f:
+    config = json.load(f)
 
 class TextDataset(Dataset):
     def __init__(self, file_path, max_seq_len):
@@ -33,6 +40,13 @@ class TextDataset(Dataset):
 
 # Example usage
 if __name__ == "__main__":
-    dataset = TextDataset(file_path=r"(Path of tokenised data from processed dataset)", max_seq_len=1024)
+    # Get file path and max_seq_len from the config file
+    file_path = config['data']['processed']['tokenized_data']
+    max_seq_len = config['data']['max_seq_len']
+    
+    # Initialize the dataset
+    dataset = TextDataset(file_path=file_path, max_seq_len=max_seq_len)
+    
+    # Output dataset information
     print(f"Number of sequences: {len(dataset)}")
     print(f"First sequence: {dataset[0]}")
